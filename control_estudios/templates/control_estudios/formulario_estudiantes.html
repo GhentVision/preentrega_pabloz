@@ -1,0 +1,44 @@
+{% extends "control_estudios/base.html" %}
+
+{% block contenido %}
+<html>
+<head>
+  <title>Añadir estudiante</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Añadir estudiante</h1>
+  <form method="POST" action="{% url 'nuevo_estudiante' %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="nombre">Nombre del estudiante:</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" required>
+    </div>
+    <div class="form-group">
+        <label for="nombre">Apellido del estudiante:</label>
+        <input type="text" class="form-control" id="apellido" name="apellido" required>
+    </div>
+    <div class="form-group">
+      <label for="fecha_nac">Fecha de nacimiento:</label>
+      <input type="date" class="form-control" id="fecha_nac" name="fecha_nac" required>
+    </div>
+    <div class="form-group">
+        <label for="dni">DNI:</label>
+        <input type="dni" class="form-control" id="dni" name="dni" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Correo electronico:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="telefono">Telefono:</label>
+        <input type="phone2numeric" class="form-control" id="telefono" name="telefono" required>
+      </div>
+    <button type="submit" class="btn btn-primary">Crear</button>
+  </form>
+</div>
+</body>
+</html>
+{% endblock contenido %}

@@ -4,10 +4,10 @@
 <section class="container">
   <div class="row justify-content-center">
     <div class="col-10">
-      <h1 class="text-center my-4">Lista de estudiantes</h1>
+      <h1 class="text-center my-4">Lista de profesores</h1>
       <div class="d-flex justify-content-between mb-3">
-        <a href="http://127.0.0.1:8000/plataforma/nuevo-estudiante/" class="btn btn-primary">Añadir estudiante</a>
-        <form action="{% url 'buscar_estudiante' %}" method="post" class="form-inline">
+        <a href="http://127.0.0.1:8000/plataforma/nuevo-profesor/" class="btn btn-primary">Añadir profesor</a>
+        <form action="{% url 'buscar_profesor' %}" method="post" class="form-inline">
           {% csrf_token %}
           <div class="input-group">
             <input type="text" name="busqueda" placeholder="Buscar por apellido..." class="form-control">
@@ -22,13 +22,15 @@
           <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
+            <th scope="col">Profesión</th>
           </tr>
         </thead>
         <tbody>
-          {% for estudiante in estudiantes %}
+          {% for profesor in profesores %}
           <tr>
-            <td>{{ estudiante.nombre }}</td>
-            <td>{{ estudiante.apellido }}</td>
+            <td>{{ profesor.nombre }}</td>
+            <td>{{ profesor.apellido }}</td>
+            <td>{{ profesor.profesion }}</td>
           </tr>
           {% endfor %}
         </tbody>

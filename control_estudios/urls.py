@@ -16,11 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from control_estudios.views import listar_estudiantes, listar_cursos
+
+from control_estudios.views import listar_estudiantes, listar_cursos, listar_profesores, crear_curso, añadir_estudiante, añadir_profesor,buscar_cursos, buscar_estudiante, buscar_profesor
 
 urlpatterns = [
-    path("estudiantes/", listar_estudiantes),
-    path("cursos/", listar_cursos),
+    path("estudiantes/", listar_estudiantes, name="lista_estudiantes"),
+    path("nuevo-estudiante/", añadir_estudiante, name="nuevo_estudiante"),
+    path("buscar-estudiante/", buscar_estudiante, name="buscar_estudiante"),
+    path("profesores/", listar_profesores, name="lista_profesores"),
+    path("nuevo-profesor/", añadir_profesor, name="nuevo_profesor"),
+    path("buscar-profesor/", buscar_profesor, name="buscar_profesor"),
+    path("cursos/", listar_cursos, name="lista_cursos"),
+    path("crear-curso/", crear_curso, name="crear_curso"),
+    path("buscar-cursos/", buscar_cursos, name="buscar_cursos"),
 ]
 
 
